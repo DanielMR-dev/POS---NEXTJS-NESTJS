@@ -3,11 +3,11 @@ import type { TypeOrmModuleOptions } from "@nestjs/typeorm";
 
 export const typeOrmConfig = (configService: ConfigService) : TypeOrmModuleOptions => ({
     type: 'postgres',
-    host: configService.get<string>('DATABASE_HOST'),
-    port: configService.get<number>('DATABASE_PORT'),
-    username: configService.get<string>('DATABASE_USER'),
-    password: configService.get<string>('DATABASE_PASS'),
-    database: configService.get<string>('DATABASE_NAME'),
-    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-    synchronize: true,
+    host: configService.get('DATABASE_HOST'),
+    port: configService.get('DATABASE_PORT'),
+    username: configService.get('DATABASE_USER'),
+    password: configService.get('DATABASE_PASS'),
+    database: configService.get('DATABASE_NAME'),
+    ssl:true,
+    logging: true,
 })
